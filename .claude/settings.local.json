@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh api repos/home-assistant/core/contents/homeassistant/components/websocket_api/subscriptions.py --jq '.download_url')",
+      "Bash(gh api \"repos/home-assistant/core/git/trees/dev?recursive=0\" --jq '.tree[] | select\\(.path | contains\\(\"\"websocket_api\"\"\\)\\) | .path')",
+      "Bash(gh api \"repos/home-assistant/core/contents/homeassistant/components/websocket_api\" --jq '.[].name')",
+      "Bash(gh api \"repos/home-assistant/core/contents/homeassistant/components/websocket_api/commands.py\" --jq '.content')",
+      "Bash(gh api \"repos/home-assistant/core/contents/homeassistant/components/websocket_api/commands.py\" --jq '.sha')",
+      "Bash(gh api \"repos/home-assistant/core/git/refs/heads/dev\" --jq '.object.sha')"
+    ]
+  }
+}

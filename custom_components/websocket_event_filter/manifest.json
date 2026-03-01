@@ -1,0 +1,13 @@
+{
+  "domain": "websocket_event_filter",
+  "name": "Websocket Event Filter",
+  "version": "1.0.0",
+  "documentation": "https://github.com/ben-j-h/websocket-event-filter",
+  "issue_tracker": "https://github.com/ben-j-h/websocket-event-filter/issues",
+  "dependencies": ["websocket_api"],
+  "codeowners": ["@ben-j-h"],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "min_homeassistant_version": "2026.2.3",
+  "requirements": []
+}
