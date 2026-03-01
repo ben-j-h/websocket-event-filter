@@ -146,11 +146,11 @@ class WebsocketEventFilterFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         return WebsocketEventFilterOptionsFlowHandler(config_entry)
 
 
-class WebsocketEventFilterOptionsFlowHandler(config_entries.OptionsFlow):
+class WebsocketEventFilterOptionsFlowHandler(config_entries.OptionsFlowWithConfigEntry):
     """Options flow for Websocket Event Filter."""
 
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
-        self.config_entry = config_entry
+        super().__init__(config_entry)
         self._mode: str = config_entry.options.get(CONF_MODE, MODE_DENY)
 
     async def async_step_init(
