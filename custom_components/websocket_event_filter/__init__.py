@@ -13,8 +13,10 @@ from .const import (
     CONF_ALLOW_PREFIXES,
     CONF_DENY_PATTERNS,
     CONF_DENY_PREFIXES,
+    CONF_MODE,
     DOMAIN,
     EXPECTED_FUNCTIONS,
+    MODE_DENY,
     str_to_list,
 )
 from .filter import EventFilter
@@ -48,6 +50,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     options = entry.options
     config = {
+        CONF_MODE: options.get(CONF_MODE, MODE_DENY),
         CONF_DENY_PREFIXES: str_to_list(options.get(CONF_DENY_PREFIXES, "")),
         CONF_DENY_PATTERNS: str_to_list(options.get(CONF_DENY_PATTERNS, "")),
         CONF_ALLOW_PREFIXES: str_to_list(options.get(CONF_ALLOW_PREFIXES, "")),

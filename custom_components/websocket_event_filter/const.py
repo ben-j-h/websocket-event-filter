@@ -9,6 +9,10 @@ def str_to_list(value: str) -> list[str]:
 
 DOMAIN = "websocket_event_filter"
 
+CONF_MODE = "mode"
+MODE_DENY = "deny"
+MODE_ALLOW = "allow"
+
 CONF_DENY_PREFIXES = "deny_prefixes"
 CONF_DENY_PATTERNS = "deny_patterns"
 CONF_ALLOW_PREFIXES = "allow_prefixes"

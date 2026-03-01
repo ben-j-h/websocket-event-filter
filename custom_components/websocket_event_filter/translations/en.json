@@ -3,18 +3,36 @@
     "step": {
       "user": {
         "title": "Websocket Event Filter",
-        "description": "Filter entity IDs from the websocket event stream to improve frontend performance. Enter one item per line in each field.",
+        "description": "Choose how to filter the websocket entity stream.",
         "data": {
-          "deny_prefixes": "Deny prefixes",
-          "deny_patterns": "Deny patterns (regex)",
-          "allow_prefixes": "Allow prefixes",
-          "allow_patterns": "Allow patterns (regex)"
+          "mode": "Filter mode"
         },
         "data_description": {
-          "deny_prefixes": "Block entities whose IDs start with these prefixes, e.g. sensor.gem_",
-          "deny_patterns": "Block entities matching these regular expressions, e.g. ^sensor\\.gem_.*$",
-          "allow_prefixes": "Allow-list mode: only forward entities starting with these prefixes. When set, deny rules are ignored.",
-          "allow_patterns": "Allow-list mode: only forward entities matching these patterns. When set, deny rules are ignored."
+          "mode": "Deny list blocks the entities you specify and forwards everything else. Allow list only forwards the entities you specify and drops everything else."
+        }
+      },
+      "deny": {
+        "title": "Deny List Rules",
+        "description": "Entities matching any rule below will be blocked. Everything else is forwarded. Enter one item per line — leave a field blank to skip that rule type.",
+        "data": {
+          "deny_prefixes": "Block by prefix",
+          "deny_patterns": "Block by pattern (Python regex)"
+        },
+        "data_description": {
+          "deny_prefixes": "Block entities whose IDs start with any of these strings, e.g.\nsensor.gem_\nsensor.high_freq_",
+          "deny_patterns": "Block entities matching any of these regular expressions, e.g.\n^sensor\\.gem_.*$"
+        }
+      },
+      "allow": {
+        "title": "Allow List Rules",
+        "description": "Only entities matching at least one rule below will be forwarded. Everything else is blocked. Enter one item per line — leave a field blank to skip that rule type.",
+        "data": {
+          "allow_prefixes": "Allow by prefix",
+          "allow_patterns": "Allow by pattern (Python regex)"
+        },
+        "data_description": {
+          "allow_prefixes": "Forward entities whose IDs start with any of these strings, e.g.\nlight.\nswitch.\ninput_boolean.",
+          "allow_patterns": "Forward entities matching any of these regular expressions, e.g.\n^(light|switch)\\."
         }
       }
     },
@@ -26,18 +44,36 @@
     "step": {
       "init": {
         "title": "Websocket Event Filter",
-        "description": "Update filter rules. The integration will reload automatically to apply changes. Enter one item per line.",
+        "description": "Change the filter mode. You will configure the rules on the next screen.",
         "data": {
-          "deny_prefixes": "Deny prefixes",
-          "deny_patterns": "Deny patterns (regex)",
-          "allow_prefixes": "Allow prefixes",
-          "allow_patterns": "Allow patterns (regex)"
+          "mode": "Filter mode"
         },
         "data_description": {
-          "deny_prefixes": "Block entities whose IDs start with these prefixes, e.g. sensor.gem_",
-          "deny_patterns": "Block entities matching these regular expressions, e.g. ^sensor\\.gem_.*$",
-          "allow_prefixes": "Allow-list mode: only forward entities starting with these prefixes. When set, deny rules are ignored.",
-          "allow_patterns": "Allow-list mode: only forward entities matching these patterns. When set, deny rules are ignored."
+          "mode": "Switching modes will clear the rules from the previous mode."
+        }
+      },
+      "deny": {
+        "title": "Deny List Rules",
+        "description": "Entities matching any rule below will be blocked. Everything else is forwarded. Enter one item per line — leave a field blank to skip that rule type.",
+        "data": {
+          "deny_prefixes": "Block by prefix",
+          "deny_patterns": "Block by pattern (Python regex)"
+        },
+        "data_description": {
+          "deny_prefixes": "Block entities whose IDs start with any of these strings, e.g.\nsensor.gem_\nsensor.high_freq_",
+          "deny_patterns": "Block entities matching any of these regular expressions, e.g.\n^sensor\\.gem_.*$"
+        }
+      },
+      "allow": {
+        "title": "Allow List Rules",
+        "description": "Only entities matching at least one rule below will be forwarded. Everything else is blocked. Enter one item per line — leave a field blank to skip that rule type.",
+        "data": {
+          "allow_prefixes": "Allow by prefix",
+          "allow_patterns": "Allow by pattern (Python regex)"
+        },
+        "data_description": {
+          "allow_prefixes": "Forward entities whose IDs start with any of these strings, e.g.\nlight.\nswitch.\ninput_boolean.",
+          "allow_patterns": "Forward entities matching any of these regular expressions, e.g.\n^(light|switch)\\."
         }
       }
     },
