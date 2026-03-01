@@ -3,8 +3,8 @@ from __future__ import annotations
 
 
 def str_to_list(value: str) -> list[str]:
-    """Convert a newline-separated string to a cleaned list, ignoring blank lines."""
-    return [line.strip() for line in value.splitlines() if line.strip()]
+    """Convert a comma-separated string to a cleaned list, ignoring blank entries."""
+    return [item.strip() for item in value.replace("\n", ",").split(",") if item.strip()]
 
 
 DOMAIN = "websocket_event_filter"

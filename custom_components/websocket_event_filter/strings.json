@@ -13,26 +13,26 @@
       },
       "deny": {
         "title": "Deny List Rules",
-        "description": "Entities matching any rule below will be blocked. Everything else is forwarded. Enter one item per line — leave a field blank to skip that rule type.",
+        "description": "Entities matching any rule below will be blocked. Everything else is forwarded.",
         "data": {
-          "deny_prefixes": "Block by prefix",
-          "deny_patterns": "Block by pattern (Python regex)"
+          "deny_prefixes": "Block by prefix (comma-separated)",
+          "deny_patterns": "Block by pattern — Python regex (comma-separated)"
         },
         "data_description": {
-          "deny_prefixes": "Block entities whose IDs start with any of these strings, e.g.\nsensor.gem_\nsensor.high_freq_",
-          "deny_patterns": "Block entities matching any of these regular expressions, e.g.\n^sensor\\.gem_.*$"
+          "deny_prefixes": "Block entities whose IDs start with any of these strings, e.g. sensor.gem_, sensor.high_freq_",
+          "deny_patterns": "Block entities matching any of these regular expressions, e.g. ^sensor\\.gem_.*$"
         }
       },
       "allow": {
         "title": "Allow List Rules",
-        "description": "Only entities matching at least one rule below will be forwarded. Everything else is blocked. Enter one item per line — leave a field blank to skip that rule type.",
+        "description": "Only entities matching at least one rule below will be forwarded. Everything else is blocked.",
         "data": {
-          "allow_prefixes": "Allow by prefix",
-          "allow_patterns": "Allow by pattern (Python regex)"
+          "allow_prefixes": "Allow by prefix (comma-separated)",
+          "allow_patterns": "Allow by pattern — Python regex (comma-separated)"
         },
         "data_description": {
-          "allow_prefixes": "Forward entities whose IDs start with any of these strings, e.g.\nlight.\nswitch.\ninput_boolean.",
-          "allow_patterns": "Forward entities matching any of these regular expressions, e.g.\n^(light|switch)\\."
+          "allow_prefixes": "Forward entities whose IDs start with any of these strings, e.g. light., switch., input_boolean.",
+          "allow_patterns": "Forward entities matching any of these regular expressions, e.g. ^(light|switch)\\."
         }
       }
     },
@@ -54,26 +54,26 @@
       },
       "deny": {
         "title": "Deny List Rules",
-        "description": "Entities matching any rule below will be blocked. Everything else is forwarded. Enter one item per line — leave a field blank to skip that rule type.",
+        "description": "Entities matching any rule below will be blocked. Everything else is forwarded.",
         "data": {
-          "deny_prefixes": "Block by prefix",
-          "deny_patterns": "Block by pattern (Python regex)"
+          "deny_prefixes": "Block by prefix (comma-separated)",
+          "deny_patterns": "Block by pattern — Python regex (comma-separated)"
         },
         "data_description": {
-          "deny_prefixes": "Block entities whose IDs start with any of these strings, e.g.\nsensor.gem_\nsensor.high_freq_",
-          "deny_patterns": "Block entities matching any of these regular expressions, e.g.\n^sensor\\.gem_.*$"
+          "deny_prefixes": "Block entities whose IDs start with any of these strings, e.g. sensor.gem_, sensor.high_freq_",
+          "deny_patterns": "Block entities matching any of these regular expressions, e.g. ^sensor\\.gem_.*$"
         }
       },
       "allow": {
         "title": "Allow List Rules",
-        "description": "Only entities matching at least one rule below will be forwarded. Everything else is blocked. Enter one item per line — leave a field blank to skip that rule type.",
+        "description": "Only entities matching at least one rule below will be forwarded. Everything else is blocked.",
         "data": {
-          "allow_prefixes": "Allow by prefix",
-          "allow_patterns": "Allow by pattern (Python regex)"
+          "allow_prefixes": "Allow by prefix (comma-separated)",
+          "allow_patterns": "Allow by pattern — Python regex (comma-separated)"
         },
         "data_description": {
-          "allow_prefixes": "Forward entities whose IDs start with any of these strings, e.g.\nlight.\nswitch.\ninput_boolean.",
-          "allow_patterns": "Forward entities matching any of these regular expressions, e.g.\n^(light|switch)\\."
+          "allow_prefixes": "Forward entities whose IDs start with any of these strings, e.g. light., switch., input_boolean.",
+          "allow_patterns": "Forward entities matching any of these regular expressions, e.g. ^(light|switch)\\."
         }
       }
     },

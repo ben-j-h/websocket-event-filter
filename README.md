@@ -71,35 +71,40 @@ update the rules. Changes take effect immediately after the integration reloads 
 
 ### Filter fields
 
-All fields accept **one item per line**. All fields are optional — leave blank to disable
-that rule type.
+The setup flow first asks you to choose a mode, then shows only the relevant fields.
+All fields are optional — leave blank to skip that rule type. Multiple values are
+**comma-separated**.
+
+**Deny list mode** (default) — block matching entities, forward everything else:
 
 | Field | Description |
 |---|---|
-| **Deny prefixes** | Block entities whose IDs start with these strings, e.g. `sensor.gem_` |
-| **Deny patterns** | Block entities matching these Python regular expressions |
-| **Allow prefixes** | Allow-list mode: only forward entities starting with these strings |
-| **Allow patterns** | Allow-list mode: only forward entities matching these patterns |
+| **Block by prefix** | Block entities whose IDs start with any of these strings |
+| **Block by pattern** | Block entities matching any of these Python regular expressions |
 
-**Allow-list vs deny-list:** If any allow rule is configured, the integration switches to
-allow-list mode and only forwards entities that match at least one allow rule — deny rules
-are ignored. If no allow rules are set, deny rules are applied and everything else passes
-through.
+**Allow list mode** — only forward matching entities, block everything else:
+
+| Field | Description |
+|---|---|
+| **Allow by prefix** | Forward entities whose IDs start with any of these strings |
+| **Allow by pattern** | Forward entities matching any of these Python regular expressions |
 
 ### Example: block GreenEye Monitor sensors
 
 ```
-Deny prefixes:
-sensor.gem_
+Block by prefix:  sensor.gem_
 ```
 
-### Example: allow only a specific domain
+### Example: block multiple high-frequency sensor groups
 
 ```
-Allow patterns:
-^light\.
-^switch\.
-^input_boolean\.
+Block by prefix:  sensor.gem_, sensor.emporia_
+```
+
+### Example: allow only a specific set of domains
+
+```
+Allow by pattern:  ^light\., ^switch\., ^input_boolean\.
 ```
 
 ## Compatibility checking

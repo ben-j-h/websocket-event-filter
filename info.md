@@ -28,18 +28,23 @@ each Home Assistant upgrade. See the README for the included compatibility check
 
 ## Configuration
 
-Configuration is done in the UI — no `configuration.yaml` changes required. All four filter
-fields accept one item per line:
+Configuration is done in the UI — no `configuration.yaml` changes required. The setup
+flow asks you to pick a mode first, then shows only the relevant fields. Multiple values
+are comma-separated.
+
+**Deny list** (default) — block specific entities, forward everything else:
 
 | Field | Behaviour |
 |---|---|
-| **Deny prefixes** | Block entities whose IDs start with these strings |
-| **Deny patterns** | Block entities matching these Python regular expressions |
-| **Allow prefixes** | Allow-list mode: only forward matching entities |
-| **Allow patterns** | Allow-list mode: only forward matching entities |
+| **Block by prefix** | Block entities whose IDs start with these strings |
+| **Block by pattern** | Block entities matching these Python regular expressions |
 
-When any allow rule is set, the integration switches to allow-list mode and deny rules are
-ignored.
+**Allow list** — only forward specific entities, block everything else:
+
+| Field | Behaviour |
+|---|---|
+| **Allow by prefix** | Forward entities whose IDs start with these strings |
+| **Allow by pattern** | Forward entities matching these Python regular expressions |
 
 ---
 

@@ -35,19 +35,19 @@ _MODE_SCHEMA = vol.Schema(
     }
 )
 
-_TEXT_MULTILINE = selector.TextSelector(selector.TextSelectorConfig(multiline=True))
+_TEXT = selector.TextSelector(selector.TextSelectorConfig(multiline=False))
 
 _DENY_SCHEMA = vol.Schema(
     {
-        vol.Optional(CONF_DENY_PREFIXES, default=""): _TEXT_MULTILINE,
-        vol.Optional(CONF_DENY_PATTERNS, default=""): _TEXT_MULTILINE,
+        vol.Optional(CONF_DENY_PREFIXES, default=""): _TEXT,
+        vol.Optional(CONF_DENY_PATTERNS, default=""): _TEXT,
     }
 )
 
 _ALLOW_SCHEMA = vol.Schema(
     {
-        vol.Optional(CONF_ALLOW_PREFIXES, default=""): _TEXT_MULTILINE,
-        vol.Optional(CONF_ALLOW_PATTERNS, default=""): _TEXT_MULTILINE,
+        vol.Optional(CONF_ALLOW_PREFIXES, default=""): _TEXT,
+        vol.Optional(CONF_ALLOW_PATTERNS, default=""): _TEXT,
     }
 )
 
